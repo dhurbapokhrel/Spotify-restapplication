@@ -41,13 +41,8 @@ public class ArtistRepository {
 	}
 
 	@Transactional
-	public ArtistEntity getArtistById(Long Id) {
-		ArtistEntity artist = enityManager.find(ArtistEntity.class, Id);
-		Query query = enityManager.createQuery("SELECT a from ArtistEntity a where Id=:Id");
-		if (artist == null) {
-			throw new EntityNotFoundException("Can't find Artist for ID " + Id);
-		}
-		return artist;
+	public ArtistEntity getArtistById(Long id) {
+		return enityManager.find(ArtistEntity.class, id);
 	}
 
 	@Transactional
